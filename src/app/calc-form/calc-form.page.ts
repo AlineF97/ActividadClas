@@ -37,7 +37,7 @@ export class CalcFormPage implements OnInit {
     valor1 = parseInt(f.valor1);
     valor2 = parseInt(f.valor2);
     resultado = valor1 + valor2;
-    return this.presentToast('El resultado es: ' + resultado);    
+    return this.mensajeSalida('El resultado es: ' + resultado);   
   }
 
 
@@ -58,7 +58,7 @@ export class CalcFormPage implements OnInit {
     valor2 = f.valor2;
     resultado = valor1-valor2;
     
-    return this.presentToast('El resultado es: ' + resultado);
+    return this.mensajeSalida('El resultado es: ' + resultado);
     
   }
 
@@ -78,7 +78,7 @@ export class CalcFormPage implements OnInit {
     valor1 = f.valor1;
     valor2 = f.valor2;
     resultado = valor1*valor2;
-    return this.presentToast('El resultado es: ' + resultado);
+    return this.mensajeSalida('El resultado es: ' + resultado);
   }
 
   async dividir(valor1: number, valor2: number, resultado: number){
@@ -92,7 +92,7 @@ export class CalcFormPage implements OnInit {
         buttons: ['Aceptar']
       });
       await alert.present();
-      return this.presentToast('El resultado es: ' + resultado);
+      return this.mensajeSalida('El resultado es: ' + resultado);
     }
 
     valor1 = f.valor1;
@@ -108,23 +108,23 @@ export class CalcFormPage implements OnInit {
       await alert.present();
       return 
     }
-    return this.presentToast('El resultado es: ' + resultado);
+    return this.mensajeSalida('El resultado es: ' + resultado);
   }
 
-    /**
- * Muestra un toast al usuario (mensaje flotante)
- * @param message Mensaje a presentar al usuario
- * @param duration Duración el toast, este es opcional
- */
-     async presentToast(message: string, duration?: number){
-      const toast = await this.toastCtrl.create(
-        {
-          message,
-          duration:duration?duration:2000
-        }
-      );
-      toast.present();
-    }
+
+  async mensajeSalida(message:string){
+    const alert = await this.alertCtrl.create({
+      header: 'Resultado',
+      message,
+      buttons: ['Aceptar']
+    });
+    await alert.present();
+    return 
+  }
+
+  formReset() {
+    this.formularioCalculadora.reset();
+  }
 
 
 
