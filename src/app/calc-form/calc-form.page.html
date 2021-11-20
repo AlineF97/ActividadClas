@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Calculadora</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup] = "formularioCalculadora">
+        <ion-item>
+          <ion-label position="floating">Valor 1</ion-label>
+          <ion-input formControlName="valor1" type= "number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Valor 2</ion-label>
+          <ion-input formControlName="valor2"></ion-input>
+        </ion-item>
+      </form>
+      <ion-row>      
+        <ion-col>
+          <ion-button expand="block" (click)="sumar()">+</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="restar()">-</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="multiplicar()">*</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="dividir()">/</ion-button>
+        </ion-col>
+      </ion-row>  
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>  
+    </ion-card-content>
+  </ion-card>
+</ion-content>
